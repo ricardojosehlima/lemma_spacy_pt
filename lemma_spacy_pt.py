@@ -31,8 +31,8 @@ print(frase)
 # Começo do conjunto de regras
 # Beginning of the set of rules
 
-# Consertando e dividindo contrações de preposições e artigos; aplica lower(1)
-# Fixing and splitting contractions of prepositions and determiners; lowering(1)
+# Consertando e dividindo contrações de preposições e artigos; aplica lower
+# Fixing and splitting contractions of prepositions and determiners; lowering
 dos = re.sub(r'\bd(?P<dos>[oa]s?\b)\S+', 'de/de \g<dos>/o', frase.lower())
 nos = re.sub(r'\bn(?P<nos>[oa]s?\b)\S+', 'em/em \g<nos>/o', dos)
 aos = re.sub(r'\ba(?P<aos>os?\b)\S+', 'a/a \g<aos>/o', nos)
@@ -90,8 +90,8 @@ partic = re.sub(
     r'(?P<tudo>(?P<rad>\w+a)(?P<partic>d[oa]s?))/\w+d[oa]s?/verb\S+',
     r'\g<tudo>/\g<rad>r', subs_ica)
 
-# Consertando parcialmente particípios de verbos da 2ª e 3ª conjugações(2)
-# Partially fixing participles of verbs from the 2nd and 3rd conjugations(2)
+# Consertando parcialmente particípios de verbos da 2ª e 3ª conjugações
+# Partially fixing participles of verbs from the 2nd and 3rd conjugations
 partic_e = re.sub(
     r'(?P<tudo>(?P<rad>\w+[csho])[ií](?P<partic>d[oa]s?))/\w+d[oa]s?/verb\S+',
     r'\g<tudo>/\g<rad>er', partic)
@@ -100,8 +100,8 @@ partic_i = re.sub(
     r'\g<tudo>/\g<rad>ir', partic_e)
 # recebidos --> recebir; os irregulares
 
-# Consertando parcialmente situações envolvendo clíticos(3)
-# Partially fixing issues with clitics(3)
+# Consertando parcialmente situações envolvendo clíticos
+# Partially fixing issues with clitics
 clit_a = re.sub(r'(?P<tudo>(?P<pal>\w+)á-(?P<clit>l[oa]s?))\S+',
                 '\g<tudo>/\g<pal>ar \g<clit>/o', partic_i) # deixá-los
 clit_e = re.sub(r'(?P<tudo>(?P<pal>\w+)ê-(?P<clit>l[oa]s?))\S+',
@@ -138,8 +138,8 @@ se_irr_9 = re.sub(r'(?P<tudo>(?P<dar>\bd)[eaáã][uorv]?(am?)?)-se\S+',
 se_irr_x = re.sub(r'(?P<tudo>\bfo(i|ram))-se\S+',
                   '\g<tudo>/ser se/se', se_irr_9) # assumindo 'ser', não 'ir'
 
-# Consertando parcialmente passiva sintética com verbos da 1ª-2ª conjugações(4)
-# Partially fixing synthetic passive with verbs of the 1st-2nd conjugations(4)
+# Consertando parcialmente passiva sintética com verbos da 1ª-2ª conjugações
+# Partially fixing synthetic passive with verbs of the 1st-2nd conjugations
 se_reg = re.sub(r'(?P<tudo>(?P<rad>\w+[ea])m?-se\b)\S+',
                 '\g<tudo>/\g<rad>r se/se', se_irr_x) #'e': infere-se -> inferer
 # Limitações do 'a': lava-se x falava-se - falavar; cantaram-se x comemoram-se
