@@ -3,7 +3,7 @@ Set of rules designed to improve the lemmatization process in Spacy for portugue
 
 pt-br
 
-O programa toma como base a lematização feita pelo Spacy e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
+O programa toma como base a lematização feita pelo Spacy (versão 2.3.2 e usando o modelo 'pt_core_news_lg') e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
 Como exemplo, a frase:
 
 "Uma empresa não é como uma família."
@@ -19,7 +19,7 @@ Em um corpus de 861 lemas, a acurácia subiu de 80,5% para 97,3%
 
 en
 
-Taking as starting point,the output of lemmatization provided by Spacy, a set of rules was built to generate lemmas that are closer to the standard.
+Taking as starting point,the output of lemmatization provided by Spacy (version 2.3.2 and using the model 'pt_core_news_lg'), a set of rules was built to generate lemmas that are closer to the standard.
 As an example, take the sentence below:
 
 "Uma empresa não é como uma família."
