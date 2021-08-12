@@ -1,5 +1,5 @@
-# lemma_spacy_pt
-Set of rules designed to improve the lemmatization process in Spacy for portuguese
+# lemma_spacy_pt_3
+Set of rules designed to improve the lemmatization process in Spacy for portuguese (Aug, 2021: updated to spacy 3.0)
 
 pt-br
 
