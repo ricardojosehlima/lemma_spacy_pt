@@ -1,5 +1,5 @@
-'''Regras para lematização do português para a versão 2.3.2 do spacy'''
-'''Rules for lemmatization in portuguese for spacy version 2.3.2'''
+'''Regras para lematização do português para a versão 3.0 do spacy'''
+'''Rules for lemmatization in portuguese for spacy version 3.0'''
 import re
 import spacy
 
