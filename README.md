@@ -1,9 +1,12 @@
 # lemma_spacy_pt_3
-Set of rules designed to improve the lemmatization process in Spacy for portuguese (Aug, 2021: updated to spacy 3.0)
+Set of rules designed to improve the lemmatization process in Spacy for portuguese 
 
 pt-br
 
-O programa toma como base a lematização feita pelo Spacy (versão 2.3.2 e usando o modelo 'pt_core_news_lg') e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
+O programa toma como base a lematização feita pelo Spacy (funciona nas versões 3.0 e 3.1) e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
+
+Você pode testar uma frase ou usar um arquivo. O resultado sairá no terminal no caso da frase e no outro caso será gerado um arquivo com os resultados.
+
 Como exemplo, a frase:
 
 "Uma empresa não é como uma família."
@@ -19,7 +22,10 @@ Em um corpus de 861 lemas, a acurácia subiu de 80,5% para 97,3%
 
 en
 
-Taking as starting point,the output of lemmatization provided by Spacy (version 2.3.2 and using the model 'pt_core_news_lg'), a set of rules was built to generate lemmas that are closer to the standard.
+Taking as starting point,the output of lemmatization provided by Spacy (works on versions 3.0 and 3.1), a set of rules was built to generate lemmas that are closer to the standard.
+
+It is possible to test a sentence or to use a file. The result will appear on the terminal when a sentence is tested, otherwise a file with the results will be generated.
+
 As an example, take the sentence below:
 
 "Uma empresa não é como uma família."
