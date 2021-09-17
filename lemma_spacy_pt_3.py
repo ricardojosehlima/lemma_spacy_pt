@@ -1,39 +1,67 @@
-'''Regras para lematização do português para a versão 3.0 do spacy'''
-'''Rules for lemmatization in portuguese for spacy version 3.0'''
+'''Regras para lematização do português para a versão 3.0 ou 3.1 do spacy'''
+'''Rules for lemmatization in portuguese for spacy version 3.0 or 3.1'''
 import re
 import spacy
 
-# Carrega o spacy e cria espaço para testes
-# Loads spacy and creates testing space
-nlp = spacy.load("pt_core_news_sm", disable=["ner"])
-doc = nlp(
-    f"Eu arrumo o canto da casa."
-    )
+# Carrega o spacy, podendo-se escolher o modelo 'sm' ou 'lg'.
+# Loads spacy, one can choose between 'sm' or 'lg' model.
+modelo = input('Qual modelo será utilizado? Escolha sm ou lg: ')
+nlp = spacy.load('pt_core_news_' + modelo)
+
+'''
+Permite que se digite uma frase ou se insira um arquivo para lematização.
+Se for um arquivo, o resultado sairá em outro arquivo.
+Se for frase, sairá no terminal.
+O arquivo deve estar em .txt
+'''
+'''
+Input maybe a file or a sentence.
+If it is a file, result will be presented in another file.
+If it is a sentence, result will appear in the terminal.
+File must be in .txt
+'''
+pergunta = input('Quer testar [f]rase ou [a]rquivo?')
+
+if pergunta == 'f':
+    para_lematizar = input("Digite a frase: ")
+    doc = nlp(para_lematizar)
+else:
+    arquivo = input("Escreva o nome do arquivo com a extensão: ")
+    with open(arquivo, 'r') as myfile:
+        para_lematizar = myfile.read()
+        doc = nlp(para_lematizar)
 
 # Gera a frase com lemas, postags e features das tags
 # Generates the sentence with lemmas, postags and tag features
-frase = ''
+para_lematizar = ''
+para_lematizar_spacy = ''
 for token in doc:
+       
+    para_lematizar_spacy += (
+        token.lemma_ + " "
+        )
     
     feats = str(token.morph).split("|")
     
-    frase += (
+    para_lematizar += (
         token.text + "/" +
         token.lemma_ + "/" +
         token.pos_ + "/" +
         "/".join([x.split("=")[1] for x in feats if "=" in x]) + " "
         )
 
-# Imprime a versão do spacy sem as regras
-# Prints spacy version without the rules
-print(frase)
+# Imprime a versão do spacy sem as regras, se input for frase
+# Prints spacy version without the rules, if input is a sentence
+lematizacao_spacy = f'Versão de lematização do Spacy: {para_lematizar_spacy}'
+if pergunta == 'f':
+    print(lematizacao_spacy)
 
 # Começo do conjunto de regras
 # Beginning of the set of rules
 
 # Consertando e dividindo contrações de preposições e artigos; aplica lower(1)
 # Fixing and splitting contractions of prepositions and determiners; lowering(1)
-dos = re.sub(r'\bd(?P<dos>[oa]s?\b)\S+', 'de/de \g<dos>/o', frase.lower())
+dos = re.sub(r'\bd(?P<dos>[oa]s?\b)\S+', 'de/de \g<dos>/o', para_lematizar.lower())
 nos = re.sub(r'\bn(?P<nos>[oa]s?\b)\S+', 'em/em \g<nos>/o', dos)
 aos = re.sub(r'\ba(?P<aos>os?\b)\S+', 'a/a \g<aos>/o', nos)
 pelos = re.sub(r'\bpel(?P<pelos>[oa]s?\b)\S+', 'por/por \g<pelos>/o', aos)
@@ -163,6 +191,25 @@ so_lemas = re.sub(r'\w+/(?P<lema>\w+)', '\g<lema>', final_final)
 so_lemas = re.sub(r'\./\./punct/', '.', so_lemas)
 so_lemas = re.sub(r'\S+punct/', '', so_lemas)
 
-# Imprime os lemas
-# Prints the lemmas
-print(so_lemas)
+
+# Imprime os lemas corrigidos
+# Prints the fixed lemmas
+versao_corrigida = f'\nVersão corrigida: {so_lemas}'
+if pergunta == 'f':
+    print(versao_corrigida)
+else:
+    with open('resultados.txt', 'w') as resultados:
+        '''
+        Se houver parágrafo no arquivo, vai aparecer / e /space/
+        no arquivo de resultados.
+        Para apagar, use expressão regular e
+        substitua /(space)/)? por '' (funciona no Notepad++)
+        '''
+        '''
+        If there is any paragraph in the file, / and /space/ will appear
+        on the file with results.
+        To delete it, use regular expressions and
+        replace /(space/)? for '' (works on Notepad++)
+        '''
+        resultados.write(lematizacao_spacy)
+        resultados.write(versao_corrigida)
