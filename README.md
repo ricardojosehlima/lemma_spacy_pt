@@ -3,7 +3,7 @@ Set of rules designed to improve the lemmatization process in Spacy for portugue
 
 pt-br
 
-18/10: atualizado para lidar com números (16/03, 28.256)
+18/10/2021: atualizado para lidar com números (16/03, 28.256); melhorias com algumas situações; mantendo siglas em maiúsculas.
 
 O programa toma como base a lematização feita pelo Spacy (funciona nas versões 3.0 e 3.1) e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
 
