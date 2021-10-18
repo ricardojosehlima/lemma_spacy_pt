@@ -3,6 +3,8 @@ Set of rules designed to improve the lemmatization process in Spacy for portugue
 
 pt-br
 
+18/10: atualizado para lidar com números (16/03, 28.256)
+
 O programa toma como base a lematização feita pelo Spacy (funciona nas versões 3.0 e 3.1) e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
 
 Você pode testar uma frase ou usar um arquivo. O resultado sairá no terminal no caso da frase e no outro caso será gerado um arquivo com os resultados.
