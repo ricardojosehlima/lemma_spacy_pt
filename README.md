@@ -3,11 +3,13 @@ Set of rules designed to improve the lemmatization process in Spacy for portugue
 
 pt-br
 
-18/10/2021: atualizado para lidar com números (16/03, 28.256); melhorias com algumas situações; mantendo siglas em maiúsculas.
+17/11/2021: totalmente atualizado, revisto e re-estruturado.
+- correções sobre números, verbos com ênclise, verbos irregulares, entre outras situações.
+- as substituições a serem feitas na lematização do Spacy aparecem em um arquivo separado, que deve ser baixado para realização do import das substituições.
 
-O programa toma como base a lematização feita pelo Spacy (funciona nas versões 3.0 e 3.1) e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
+O programa toma como base a lematização feita pelo Spacy (funciona nas versões 3.0, 3.1 e 3.2) e aplica uma série de regras para gerar uma lematização mais próxima do padrão.
 
-Você pode testar uma frase ou usar um arquivo. O resultado sairá no terminal no caso da frase e no outro caso será gerado um arquivo com os resultados.
+Você pode testar usando um arquivo. O resultado sairá gerado em um arquivo com os resultados.
 
 Como exemplo, a frase:
 
@@ -24,9 +26,13 @@ Em um corpus de 861 lemas, a acurácia subiu de 80,5% para 97,3%
 
 en
 
-Taking as starting point,the output of lemmatization provided by Spacy (works on versions 3.0 and 3.1), a set of rules was built to generate lemmas that are closer to the standard.
+17/11/2021: updated, reviewed and restructured.
+- corrections of numbers, verbs with enclisis, irregular verbs and other situations.
+- the substitutions to be applied on the lemmatization provided by Spacy appear in a separate file, that must also be downloaded in order for the import to work.
 
-It is possible to test a sentence or to use a file. The result will appear on the terminal when a sentence is tested, otherwise a file with the results will be generated.
+Taking as starting point,the output of lemmatization provided by Spacy (works on versions 3.0, 3.1 and 3.2), a set of rules was built to generate lemmas that are closer to the standard.
+
+It is possible to test using a file. The result will appear on a file with the results generated.
 
 As an example, take the sentence below:
 
